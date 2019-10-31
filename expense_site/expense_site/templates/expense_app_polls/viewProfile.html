@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <style>
+        body
+        {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+        }
+         table 
+        {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th 
+        {
+            font-size: 30px;
+            background-color: black;
+            text-align: center;
+            color: white;
+        }
+
+        td 
+        {
+            padding: 8px;
+            font-size: 15px;
+            border-bottom: 1px solid darkcyan;
+            text-align: center;
+            font-style: italic;
+            font-size: 25px;
+            padding: 5px;
+            background-color: maroon;
+            color: white;
+        }
+        button 
+        {
+          background-color: black;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+        }
+        .dropbtn 
+        {
+          background-color: black;
+          color: white;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+          font-size: 30px;
+          font-style: italic;
+        }
+
+        .dropdown 
+        {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-content 
+        {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            background-color: white;
+            text-align: center;
+            color: white;
+        }
+
+        .dropdown-content a 
+        {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        .dropdown-content a:hover 
+        {
+            background-color: maroon;
+
+        }
+
+        .dropdown:hover .dropdown-content 
+        {
+            display: block;
+
+        }
+
+        .dropdown:hover .dropbtn 
+        {
+            background-color: black;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <img src = "https://logos-download.com/wp-content/uploads/2016/12/DBS_Bank_logo_logotype.png" height = "400" width = "1200">
+    </div>
+    <table>
+        <tr >
+            <th colspan ="4">
+                Hello, <label id ="customerName">{{firstname}}</label> !
+            </th>
+        </tr>
+        <tr>
+            <th colspan ="4">
+                <u>User Information</u>
+             </th>
+        </tr>
+       <tr>
+           <td>
+               Account ID:
+           </td>
+           <td colspan ="3">
+               <label id ="customerId">{{account_id}}</label>
+           </td>
+       </tr>
+        <tr>
+            <th colspan ="4">
+                <u>Transaction Details</u>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <i>Date</i>
+            </th>
+            <th>
+                <i>Reference</i>
+            </th>
+            <th>
+                <i>Type</i>
+            </th>
+            <th>
+                <i>Amount ($)</i>
+            </th>
+        </tr>
+
+        {% for id,type,amount,date in zipped_list %}
+        <tr>
+            <td>
+                {{date}}
+            </td>
+            <td>
+                {{id}}
+            </td>
+            <td>
+                {{type}}
+            </td>
+            <td>
+                {{amount}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
