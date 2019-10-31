@@ -164,5 +164,15 @@
         </tr>
         {% endfor %}
     </table>
+    <div style="margin-left:4%">
+        <h3>Monthly Expenditures: </h3><br>
+        {% for k,v in df_dict.items %}
+
+            {% for val in v.items %}
+            <span> {{val}} </span>
+            <br>
+            {% endfor %}
+        {% endfor %}
+    </div>
 </body>
 </html>
